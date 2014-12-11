@@ -255,6 +255,6 @@ void loop() {
   displayTemp();
   displayTime();
 
-  //ctrl.serialDebugDump();
+  ctrl.serialDebugDump();
 
 }

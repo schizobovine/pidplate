@@ -3,19 +3,18 @@
 
 #include<Arduino.h>
 
-const int THERMO_CLK = 13;
-const int THERMO_CS  = 12;
-const int THERMO_DO  = 11;
-
-const int SSR = 1;
-
-const int DB7 = 9;
-const int DB6 = 8;
-const int DB5 = 7;
-const int DB4 = 6;
-const int RS  = 2;
-const int RW  = 3;
-const int E   = 4;
+const int THERMO_DO  = A0;
+const int THERMO_CS  = A1;
+const int THERMO_CLK = A2;
+const int SSR = A3;
+const int BL  = 6;
+const int E   = 7;
+const int DB4 = 8;
+const int DB5 = 9;
+const int DB6 = 10;
+const int DB7 = 11;
+const int RS  = 12;
+const int RW  = 13;
 
 #define LCD_COLS (16)
 #define LCD_ROWS (2)
