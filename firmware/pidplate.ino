@@ -52,106 +52,19 @@ PID ctrl = PID(setTemp, TUNE_SLOW_P, TUNE_SLOW_I, TUNE_SLOW_D);
  * "Helping"
  ***********************************************************************/
 
-#if 0
-char dig2ascii(uint8_t d) {
-  switch (d) {
-    case 0x0: return '0';
-    case 0x1: return '1';
-    case 0x2: return '2';
-    case 0x3: return '3';
-    case 0x4: return '4';
-    case 0x5: return '5';
-    case 0x6: return '6';
-    case 0x7: return '7';
-    case 0x8: return '8';
-    case 0x9: return '9';
-    case 0xA: return 'A';
-    case 0xB: return 'B';
-    case 0xC: return 'C';
-    case 0xD: return 'D';
-    case 0xE: return 'E';
-    case 0xF: return 'F';
-    default: return ' ';
-  }
-}
-#endif
-
 double readThermocouple() {
   double t = tc.readCelsius();
 
   // Only set the current temp if it's sane to prevent the PID controller from
   // going haywire if the TC fucks up
-  if (t != NAN && t > -100 && t < 3000)
+  if (t != NAN && t > -100 && t < 3000) {
     return t;
-  else
-    return 0.0;
+  } else {
+    //Return last reading so shit doesn't bounce around like a Jack Russell
+    //fucking terrier
+    return currTemp; 
+  }
 }
-
-//
-// Display current temp, setpoint temp, SSR level, and time since boot
-//
-#if 0
-void doDisplay() {
-  char buff[17];
-  uint8_t dig0, dig1, dig2;
-
-  // Current temp
-
-  dig0 = ((int)(currTemp / 100)) % 10;
-  dig1 = ((int)(currTemp / 10)) % 10;
-  dig2 = ((int)currTemp) % 10;
-
-  buff[0] = (dig0)         ? dig2ascii(dig0) : ' ';
-  buff[1] = (dig0 || dig1) ? dig2ascii(dig1) : ' ';
-  buff[2] = dig2ascii(dig2);
-  buff[3] = 'C';
-  buff[4] = ' ';
-
-  // Setpoint temp
-
-  dig0 = ((int)(setTemp / 100)) % 10;
-  dig1 = ((int)(setTemp / 10)) % 10;
-  dig2 = ((int)setTemp) % 10;
-
-  buff[5] = (dig0)         ? dig2ascii(dig0) : ' ';
-  buff[6] = (dig0 || dig1) ? dig2ascii(dig1) : ' ';
-  buff[7] = dig2ascii(dig2);
-  buff[8] = 'C';
-  buff[9] = ' ';
-
-  // SSR level
-  dig0 = ((int)(ssrPWM / 100)) % 10;
-  dig1 = ((int)(ssrPWM / 10)) % 10;
-  dig2 = ((int)ssrPWM) % 10;
-
-  buff[10] = (dig0)         ? dig2ascii(dig0) : ' ';
-  buff[11] = (dig0 || dig1) ? dig2ascii(dig1) : ' ';
-  buff[12] = dig2ascii(dig2);
-  buff[13] = 0;
-
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print(buff);
-
-  // Display time since startup in HH:MM:SS format
-  usec now = millis() / 1000;
-  uint32_t h = (now / (60 * 60)) % 100;
-  uint32_t m = (now / 60) % 60;
-  uint32_t s = now % 60;
-  buff[0] = dig2ascii(h / 10);
-  buff[1] = dig2ascii(h % 10);
-  buff[2] = ':';
-  buff[3] = dig2ascii(m / 10);
-  buff[4] = dig2ascii(m % 10);
-  buff[5] = ':';
-  buff[6] = dig2ascii(s / 10);
-  buff[7] = dig2ascii(s % 10);
-  buff[8] = 0;
-  lcd.setCursor(0, 1);
-  lcd.print(buff);
-
-}
-#endif
 
 void displayTime() {
 
@@ -241,6 +154,7 @@ void loop() {
   // Get reading from thermocouple
   currTemp = readThermocouple();
 
+#if 0
   // Input temp to PID controller & calculate current PWM level
   ctrl.setInput(currTemp);
   if (ctrl.compute()) {
@@ -249,6 +163,7 @@ void loop() {
     ssrPWM = ctrl.getOutput();
     analogWrite(SSR, ssrPWM);
   }
+#endif
 
   // Update display
   lcd.clear();
