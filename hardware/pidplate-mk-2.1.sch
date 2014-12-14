@@ -832,7 +832,7 @@ IC needs to have legs bent before insertion.</description>
 <smd name="8" x="2.4638" y="1.905" dx="1.9812" dy="0.5588" layer="1"/>
 <wire x1="-2.032" y1="-2.54" x2="2.032" y2="-2.54" width="0.1524" layer="21"/>
 <wire x1="0.508" y1="2.54" x2="-0.508" y2="2.54" width="0.1524" layer="21" curve="-180"/>
-<text x="0" y="2.794" size="0.8128" layer="25" font="vector" ratio="12" rot="SR0" align="bottom-center">&gt;NAME</text>
+<text x="0" y="2.7" size="0.6096" layer="25" font="vector" ratio="12" rot="SR0" align="bottom-center">&gt;NAME</text>
 <wire x1="-2.032" y1="1.4478" x2="-2.032" y2="1.0922" width="0.1524" layer="21"/>
 <wire x1="-2.032" y1="0.1778" x2="-2.032" y2="-0.1778" width="0.1524" layer="21"/>
 <wire x1="-2.032" y1="-1.0922" x2="-2.032" y2="-1.4478" width="0.1524" layer="21"/>
@@ -846,6 +846,7 @@ IC needs to have legs bent before insertion.</description>
 <wire x1="-2.032" y1="-2.3622" x2="-2.032" y2="-2.54" width="0.1524" layer="21"/>
 <wire x1="2.032" y1="-2.3622" x2="2.032" y2="-2.54" width="0.1524" layer="21"/>
 <circle x="-1.016" y="1.905" radius="0.254" width="0" layer="21"/>
+<text x="0" y="0" size="0.5" layer="27" font="vector" ratio="12" rot="R90" align="center">&gt;VALUE</text>
 </package>
 <package name="DO-41-TVS">
 <pad name="P$1" x="-5.08" y="0" drill="1" diameter="1.778"/>
@@ -10000,23 +10001,34 @@ body 32 x 21 mm, grid 27.9 mm</description>
 <hole x="5" y="0" drill="1.2"/>
 </package>
 <package name="STEREOJACK2.5MM_STEREOJACK2.5MM">
-<wire x1="4.4" y1="2.5" x2="4.2" y2="2.5" width="0.127" layer="21"/>
-<wire x1="4.2" y1="2.5" x2="-3.3" y2="2.5" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="2.5" x2="-3.3" y2="1.7" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="1.7" x2="-3.3" y2="-1.9" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="-1.9" x2="-3.3" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="-2.6" x2="4.6" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="4.6" y1="-2.6" x2="4.6" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="4.6" y1="1.5" x2="4.6" y2="2.5" width="0.127" layer="21"/>
-<wire x1="4.6" y1="2.5" x2="4.2" y2="2.5" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="1.7" x2="-6.3" y2="1.7" width="0.127" layer="21"/>
-<wire x1="-6.3" y1="1.7" x2="-6.3" y2="-1.9" width="0.127" layer="21"/>
-<wire x1="-6.3" y1="-1.9" x2="-3.3" y2="-1.9" width="0.127" layer="21"/>
-<pad name="RING1" x="2.5" y="-1.85" drill="1.1" diameter="1.9304"/>
-<pad name="RING2" x="2.5" y="1.85" drill="1.1" diameter="1.9304"/>
-<pad name="SHIELD" x="-2.4" y="0" drill="1" diameter="1.9304"/>
+<wire x1="1.5" y1="2.5" x2="-3.4" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="-3.4" y1="-2.5" x2="1.5" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="-6.4" y1="2" x2="-6.4" y2="-2" width="0.1524" layer="51"/>
+<pad name="RING1" x="2.5" y="-1.85" drill="1.1" diameter="1.9304" rot="R270"/>
+<pad name="RING2" x="2.5" y="1.85" drill="1.1" diameter="1.9304" rot="R90"/>
+<pad name="SHIELD" x="-2.4" y="0" drill="1.1" diameter="1.9304" rot="R90"/>
 <pad name="TIP" x="4.5" y="0" drill="1.1" diameter="1.9304"/>
 <hole x="0" y="0" drill="1.2"/>
+<wire x1="3.5" y1="2.5" x2="4.4" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="3.5" y1="-2.5" x2="4.4" y2="-2.5" width="0.1524" layer="21"/>
+<text x="0" y="-2.7" size="0.5" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center">&gt;NAME</text>
+<wire x1="4.4" y1="2.5" x2="4.4" y2="1.2" width="0.1524" layer="21"/>
+<wire x1="4.4" y1="-1.2" x2="4.4" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="-3.4" y1="-2.5" x2="-3.4" y2="-2" width="0.1524" layer="51"/>
+<wire x1="-3.4" y1="-2" x2="-3.4" y2="2" width="0.1524" layer="51"/>
+<wire x1="-3.4" y1="2" x2="-3.4" y2="2.5" width="0.1524" layer="51"/>
+<wire x1="-3.4" y1="2.5" x2="4.4" y2="2.5" width="0.1524" layer="51"/>
+<wire x1="4.4" y1="2.5" x2="4.4" y2="-2.5" width="0.1524" layer="51"/>
+<wire x1="4.4" y1="-2.5" x2="-3.4" y2="-2.5" width="0.1524" layer="51"/>
+<wire x1="-6.4" y1="2" x2="-3.4" y2="2" width="0.1524" layer="51"/>
+<wire x1="-6.4" y1="-2" x2="-3.4" y2="-2" width="0.1524" layer="51"/>
+<wire x1="-3.4" y1="2.5" x2="-3.4" y2="2" width="0.1524" layer="21"/>
+<wire x1="-3.4" y1="2" x2="-3.4" y2="0.6" width="0.1524" layer="21"/>
+<wire x1="-3.4" y1="-2.5" x2="-3.4" y2="-2" width="0.1524" layer="21"/>
+<wire x1="-3.4" y1="-2" x2="-3.4" y2="-0.6" width="0.1524" layer="21"/>
+<wire x1="-6.4" y1="-2" x2="-6.4" y2="2" width="0.1524" layer="21"/>
+<wire x1="-6.4" y1="2" x2="-3.4" y2="2" width="0.1524" layer="21"/>
+<wire x1="-6.4" y1="-2" x2="-3.4" y2="-2" width="0.1524" layer="21"/>
 </package>
 <package name="STEREOJACK2.5MM_SPECIA_POGOPINS">
 <wire x1="4.6" y1="2.5" x2="-3.3" y2="2.5" width="0.127" layer="21"/>
@@ -10436,6 +10448,74 @@ body 32 x 21 mm, grid 27.9 mm</description>
 <text x="0" y="-1.85" size="0.6096" layer="25" font="vector" ratio="12" align="top-center">&gt;NAME</text>
 <pad name="6" x="5" y="0" drill="0.8" diameter="1.4224" shape="octagon" rot="R90"/>
 <pad name="1" x="-5" y="0" drill="0.8" diameter="1.4224" shape="octagon" rot="R90"/>
+</package>
+<package name="DTS-3-VERT-PADS">
+<wire x1="-3" y1="1.75" x2="3" y2="1.75" width="0.1524" layer="51"/>
+<wire x1="3" y1="1.75" x2="3" y2="-1.75" width="0.1524" layer="51"/>
+<wire x1="3" y1="-1.75" x2="-3" y2="-1.75" width="0.1524" layer="51"/>
+<wire x1="-3" y1="-1.75" x2="-3" y2="1.75" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="0.75" x2="1.5" y2="-0.75" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.1524" layer="51"/>
+<wire x1="-3" y1="1.75" x2="-3" y2="0.746" width="0.1524" layer="21"/>
+<wire x1="-3" y1="1.75" x2="3" y2="1.75" width="0.1524" layer="21"/>
+<wire x1="3" y1="1.75" x2="3" y2="0.746" width="0.1524" layer="21"/>
+<wire x1="3" y1="-0.746" x2="3" y2="-1.75" width="0.1524" layer="21"/>
+<wire x1="3" y1="-1.75" x2="-3" y2="-1.75" width="0.1524" layer="21"/>
+<wire x1="-3" y1="-1.75" x2="-3" y2="-0.746" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="-0.75" x2="1.5" y2="-0.75" width="0.1524" layer="21"/>
+<pad name="1" x="-3.25" y="0" drill="1.3" diameter="2" shape="long" rot="R90" stop="no"/>
+<pad name="2" x="3.25" y="0" drill="1.3" diameter="2" shape="long" rot="R90" stop="no"/>
+<text x="0" y="1.905" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center">&gt;NAME</text>
+<polygon width="0.1524" layer="30">
+<vertex x="-2.25" y="1"/>
+<vertex x="-2.25" y="-1" curve="-90"/>
+<vertex x="-3.25" y="-2" curve="-90"/>
+<vertex x="-4.25" y="-1"/>
+<vertex x="-4.25" y="1" curve="-90"/>
+<vertex x="-3.25" y="2" curve="-90"/>
+</polygon>
+<polygon width="0.1524" layer="30">
+<vertex x="4.25" y="1"/>
+<vertex x="4.25" y="-1" curve="-90"/>
+<vertex x="3.25" y="-2" curve="-90"/>
+<vertex x="2.25" y="-1"/>
+<vertex x="2.25" y="1" curve="-90"/>
+<vertex x="3.25" y="2" curve="-90"/>
+</polygon>
+<circle x="-3.25" y="0" radius="0.635" width="0" layer="29"/>
+<circle x="3.25" y="0" radius="0.635" width="0" layer="29"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.1524" layer="21"/>
+<wire x1="1.5" y1="-0.75" x2="1.5" y2="0.75" width="0.1524" layer="21"/>
+</package>
+<package name="DTS-3-SMALL-PADS">
+<wire x1="-3" y1="1.75" x2="3" y2="1.75" width="0.1524" layer="51"/>
+<wire x1="3" y1="1.75" x2="3" y2="-1.75" width="0.1524" layer="51"/>
+<wire x1="3" y1="-1.75" x2="-3" y2="-1.75" width="0.1524" layer="51"/>
+<wire x1="-3" y1="-1.75" x2="-3" y2="1.75" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="0.75" x2="1.5" y2="-0.75" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-0.75" x2="-1.5" y2="-0.75" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.1524" layer="51"/>
+<wire x1="-3" y1="1.75" x2="-3" y2="0.746" width="0.1524" layer="21"/>
+<wire x1="-3" y1="1.75" x2="3" y2="1.75" width="0.1524" layer="21"/>
+<wire x1="3" y1="1.75" x2="3" y2="0.746" width="0.1524" layer="21"/>
+<wire x1="3" y1="-0.746" x2="3" y2="-1.75" width="0.1524" layer="21"/>
+<wire x1="3" y1="-1.75" x2="-3" y2="-1.75" width="0.1524" layer="21"/>
+<wire x1="-3" y1="-1.75" x2="-3" y2="-0.746" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="0.75" x2="1.5" y2="0.75" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="-0.75" x2="1.5" y2="-0.75" width="0.1524" layer="21"/>
+<pad name="1" x="-3.25" y="0" drill="1.3" diameter="2" rot="R90" stop="no"/>
+<pad name="2" x="3.25" y="0" drill="1.3" diameter="2" rot="R90" stop="no"/>
+<text x="0" y="1.905" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center">&gt;NAME</text>
+<circle x="-3.25" y="0" radius="0.635" width="0" layer="29"/>
+<circle x="3.25" y="0" radius="0.635" width="0" layer="29"/>
+<wire x1="-1.5" y1="-0.75" x2="-1.5" y2="0.75" width="0.1524" layer="21"/>
+<wire x1="1.5" y1="-0.75" x2="1.5" y2="0.75" width="0.1524" layer="21"/>
+<circle x="-3.25" y="0" radius="1.05" width="0" layer="30"/>
+<circle x="3.25" y="0" radius="1.05" width="0" layer="30"/>
 </package>
 </packages>
 <symbols>
@@ -13637,6 +13717,24 @@ Ignore package description- MBRA140 is NOT this type of part!!!</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="3MM-PTH-VERT-PADS" package="DTS-3-VERT-PADS">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3MM-PTH-SMALL-PADS" package="DTS-3-SMALL-PADS">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="RESISTOR" prefix="R" uservalue="yes">
@@ -15003,9 +15101,9 @@ Simple 3.5mm common PCB mount audio jack. SKU: PRT-08032</description>
 </device>
 <device name="2.5MM" package="STEREOJACK2.5MM_STEREOJACK2.5MM">
 <connects>
-<connect gate="G$1" pin="LEFT" pad="SHIELD"/>
+<connect gate="G$1" pin="LEFT" pad="RING1 RING2"/>
 <connect gate="G$1" pin="RIGHT" pad="TIP"/>
-<connect gate="G$1" pin="SLEEVE" pad="RING1"/>
+<connect gate="G$1" pin="SLEEVE" pad="SHIELD"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -15230,7 +15328,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="U3" library="A_butts" deviceset="VSK-S1" device="" value="VSK-S1-3.3V"/>
 <part name="GND2" library="A_butts" deviceset="GND" device=""/>
 <part name="GND3" library="A_butts" deviceset="GND" device=""/>
-<part name="RESET" library="A_butts" deviceset="SPST-NO-TACT" device="6MM-PTH" value="SPST-NO-TACT6MM-PTH"/>
+<part name="RESET" library="A_butts" deviceset="SPST-NO-TACT" device="3MM-PTH-SMALL-PADS" value="SPST-NO-TACT3MM-PTH-SMALL-PADS"/>
 <part name="R1" library="A_butts" deviceset="RESISTOR" device="PTH-AXIAL-6.35MM" value="10K"/>
 <part name="GND4" library="A_butts" deviceset="GND" device=""/>
 <part name="GND5" library="A_butts" deviceset="GND" device=""/>
@@ -15251,7 +15349,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="AVRISP" library="A_butts" deviceset="AVR_SPI_PRG_6" device="PTH" value="AVR_SPI_PRG_6PTH"/>
 <part name="GND16" library="A_butts" deviceset="GND" device=""/>
 <part name="JP1" library="A_butts" deviceset="M02" device="3.5MM"/>
-<part name="THERM" library="A_butts" deviceset="AUDIO-JACK" device="PTH"/>
+<part name="THERM" library="A_butts" deviceset="AUDIO-JACK" device="2.5MM"/>
 <part name="SUPPLY7" library="A_butts" deviceset="3.3V" device=""/>
 <part name="SUPPLY9" library="A_butts" deviceset="3.3V" device=""/>
 <part name="SUPPLY1" library="A_butts" deviceset="3.3V" device=""/>
@@ -15303,11 +15401,11 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <instance part="GND2" gate="1" x="60.96" y="86.36"/>
 <instance part="GND3" gate="1" x="142.24" y="58.42"/>
 <instance part="RESET" gate="G$1" x="55.88" y="12.7"/>
-<instance part="R1" gate="G$1" x="66.04" y="20.32" rot="R90"/>
+<instance part="R1" gate="G$1" x="66.04" y="20.32" rot="MR90"/>
 <instance part="GND4" gate="1" x="48.26" y="7.62"/>
 <instance part="GND5" gate="1" x="127" y="99.06"/>
 <instance part="GND7" gate="1" x="101.6" y="15.24"/>
-<instance part="SSR" gate="G$1" x="157.48" y="38.1" rot="R180"/>
+<instance part="SSR" gate="G$1" x="157.48" y="30.48" rot="MR0"/>
 <instance part="SUPPLY4" gate="G$1" x="60.96" y="114.3"/>
 <instance part="Q1" gate="G$1" x="144.78" y="25.4"/>
 <instance part="GND13" gate="1" x="144.78" y="12.7"/>
@@ -15341,7 +15439,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <instance part="SUPPLY6" gate="G$1" x="66.04" y="27.94"/>
 <instance part="SUPPLY10" gate="G$1" x="116.84" y="73.66"/>
 <instance part="R2" gate="G$1" x="180.34" y="15.24"/>
-<instance part="R5" gate="G$1" x="137.16" y="17.78" rot="MR0"/>
+<instance part="R5" gate="G$1" x="137.16" y="17.78"/>
 </instances>
 <busses>
 </busses>
@@ -15395,7 +15493,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <wire x1="144.78" y1="17.78" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="17.78" x2="144.78" y2="17.78" width="0.1524" layer="91"/>
 <junction x="144.78" y="17.78"/>
-<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="GND"/>
@@ -15530,9 +15628,9 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 </segment>
 <segment>
 <pinref part="RESET" gate="G$1" pin="2"/>
-<pinref part="R1" gate="G$1" pin="1"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="12.7" x2="66.04" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="12.7" x2="66.04" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="12.7" x2="66.04" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="12.7" x2="68.58" y2="12.7" width="0.1524" layer="91"/>
 <junction x="66.04" y="12.7"/>
 <label x="68.58" y="12.7" size="1.27" layer="95" xref="yes"/>
@@ -15552,7 +15650,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <wire x1="132.08" y1="17.78" x2="129.54" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="17.78" x2="129.54" y2="25.4" width="0.1524" layer="91"/>
 <junction x="129.54" y="25.4"/>
-<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="R5" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PC3(ADC3)"/>
@@ -15703,9 +15801,9 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <pinref part="C6" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="SUPPLY6" gate="G$1" pin="3.3V"/>
-<wire x1="66.04" y1="27.94" x2="66.04" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="27.94" x2="66.04" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PTC" gate="G$1" pin="2"/>
@@ -15731,7 +15829,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <net name="N$9" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="D"/>
-<pinref part="SSR" gate="G$1" pin="2"/>
+<pinref part="SSR" gate="G$1" pin="1"/>
 <wire x1="144.78" y1="30.48" x2="144.78" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="33.02" x2="147.32" y2="33.02" width="0.1524" layer="91"/>
 </segment>
@@ -15739,7 +15837,7 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <net name="N$6" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="SSR" gate="G$1" pin="1"/>
+<pinref part="SSR" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="35.56" x2="147.32" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
