@@ -11,8 +11,10 @@
 #include <string.h>
 #include <math.h>
 #include <Arduino.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_LEDBackpack.h>
 #include <Adafruit_MAX31855.h>
-#include <LiquidCrystal.h>
+//#include <LiquidCrystal.h>
 #include <PID_Controller.h>
 #include "usec.h"
 #include "pidplate.h"
@@ -38,7 +40,8 @@ const double TEMP_SET = 260.0;
 Adafruit_MAX31855 tc = Adafruit_MAX31855(THERMO_CLK, THERMO_CS, THERMO_DO);
 
 // DISPLAY
-LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
+//LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
+Adafruit_7segment display = Adafruit_7segment();
 
 // PID Control setup
 double currTemp   = 0.0;               // input (process) var (PV)
@@ -79,14 +82,15 @@ void displayTime() {
   char buff[9];
   snprintf(buff, sizeof(buff), "%02.2d:%02.2d:%02.2d", h, m, s);
 
-  lcd.setCursor(0, 1);
-  lcd.print(buff);
+  //lcd.setCursor(0, 1);
+  //lcd.print(buff);
 }
 
 //
 // Display current temp, setpoint temp, SSR level, and time since boot
 //
 void displayTemp() {
+#if 0
   char buff[17];
   size_t pos = 0;
 
@@ -112,9 +116,11 @@ void displayTemp() {
   dtostrf(ssrPWM, 5, 1, buff + pos);
   buff[16] = '\0';
 
-  lcd.setCursor(0, 0);
-  lcd.print(buff);
-
+  //lcd.setCursor(0, 0);
+  //lcd.print(buff);
+#endif
+  display.print(currTemp);
+  display.writeDisplay();
 }
 
 /***********************************************************************
@@ -134,7 +140,8 @@ void setup() {
   delay(200);
 
   // Boot up display
-  lcd.begin(LCD_COLS, LCD_ROWS);
+  //lcd.begin(LCD_COLS, LCD_ROWS);
+  display.begin(0x70);
 
   // Setup PID algorithm: Peform two back to back readings to initialize the
   // PID controller because fuck it
@@ -142,6 +149,7 @@ void setup() {
   ctrl.setInput(currTemp);
   currTemp = readThermocouple();
   ctrl.setInput(currTemp);
+  displayTemp();
 
 }
 
@@ -154,7 +162,6 @@ void loop() {
   // Get reading from thermocouple
   currTemp = readThermocouple();
 
-#if 0
   // Input temp to PID controller & calculate current PWM level
   ctrl.setInput(currTemp);
   if (ctrl.compute()) {
@@ -163,13 +170,12 @@ void loop() {
     ssrPWM = ctrl.getOutput();
     analogWrite(SSR, ssrPWM);
   }
-#endif
 
   // Update display
-  lcd.clear();
+  //lcd.clear();
   displayTemp();
-  displayTime();
+  //displayTime();
 
-  ctrl.serialDebugDump();
+  //ctrl.serialDebugDump();
 
 }

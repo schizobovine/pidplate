@@ -3,10 +3,10 @@
 
 #include<Arduino.h>
 
-const int THERMO_DO  = A0;
-const int THERMO_CS  = A1;
-const int THERMO_CLK = A2;
-const int SSR = A3;
+const int THERMO_DO  = 8;
+const int THERMO_CS  = 9;
+const int THERMO_CLK = 10;
+const int SSR = 5;
 const int BL  = 6;
 const int E   = 7;
 const int DB4 = 8;
