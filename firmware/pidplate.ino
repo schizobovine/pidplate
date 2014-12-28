@@ -14,7 +14,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_LEDBackpack.h>
 #include <Adafruit_MAX31855.h>
-//#include <LiquidCrystal.h>
 #include <PID_Controller.h>
 #include "usec.h"
 #include "pidplate.h"
@@ -40,14 +39,13 @@ const double TEMP_SET = 260.0;
 Adafruit_MAX31855 tc = Adafruit_MAX31855(THERMO_CLK, THERMO_CS, THERMO_DO);
 
 // DISPLAY
-//LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
 Adafruit_7segment display = Adafruit_7segment();
 
 // PID Control setup
-double currTemp   = 0.0;               // input (process) var (PV)
-double setTemp    = TEMP_SET;          // set point var (SP)
-double ssrPWM     = 0.0;               // output (controlled) var (CV)
-double lastPWM    = NAN;               // last value of CV to print changes
+double currTemp = 0.0;      // input (process) var (PV)
+double setTemp  = TEMP_SET; // set point var (SP)
+double ssrPWM   = 0.0;      // output (controlled) var (CV)
+double lastPWM  = NAN;      // last value of CV to print changes
 
 PID ctrl = PID(setTemp, TUNE_SLOW_P, TUNE_SLOW_I, TUNE_SLOW_D);
 
@@ -69,56 +67,10 @@ double readThermocouple() {
   }
 }
 
-void displayTime() {
-
-  // HH:MM:SS\0
-  // 01234567 8
-
-  usec now = millis() / 1000;
-  int h = now / 60 / 60 % 100;
-  int m = now / 60 % 60;
-  int s = now % 60;
-
-  char buff[9];
-  snprintf(buff, sizeof(buff), "%02.2d:%02.2d:%02.2d", h, m, s);
-
-  //lcd.setCursor(0, 1);
-  //lcd.print(buff);
-}
-
 //
 // Display current temp, setpoint temp, SSR level, and time since boot
 //
 void displayTemp() {
-#if 0
-  char buff[17];
-  size_t pos = 0;
-
-  // 123C 456C  255.0
-  // 0123456789111111
-  //           012345
-
-  // Current temp
-  dtostrf(round(fmod(currTemp, 1000)), 3, 0, buff + pos);
-  buff[3] = 'C';
-  buff[4] = ' ';
-  pos = 5;
-
-  // Setpoint temp
-  dtostrf(round(fmod(setTemp, 1000)), 3, 0, buff + pos);
-  buff[8] = 'C';
-  buff[9] = ' ';
-  buff[10] = ' ';
-  pos = 11;
-
-  // SSR level
-  //dtostrf(fmod(ssrPWM, 1000), 5, 1, buff + pos);
-  dtostrf(ssrPWM, 5, 1, buff + pos);
-  buff[16] = '\0';
-
-  //lcd.setCursor(0, 0);
-  //lcd.print(buff);
-#endif
   display.print(currTemp);
   display.writeDisplay();
 }
@@ -140,7 +92,6 @@ void setup() {
   delay(200);
 
   // Boot up display
-  //lcd.begin(LCD_COLS, LCD_ROWS);
   display.begin(0x70);
 
   // Setup PID algorithm: Peform two back to back readings to initialize the
@@ -165,16 +116,14 @@ void loop() {
   // Input temp to PID controller & calculate current PWM level
   ctrl.setInput(currTemp);
   if (ctrl.compute()) {
-    // FIRE ZE MISSILES
     lastPWM = ssrPWM;
     ssrPWM = ctrl.getOutput();
     analogWrite(SSR, ssrPWM);
   }
 
   // Update display
-  //lcd.clear();
-  displayTemp();
-  //displayTime();
+  display.print(currTemp);
+  display.writeDisplay();
 
   //ctrl.serialDebugDump();
 
