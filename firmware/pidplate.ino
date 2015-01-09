@@ -26,15 +26,6 @@
 //const double TEMP_SET = 260.0;
 const double TEMP_SET = 260.0;
 
-// Maximum increase in set point temp per second. Based on the heater being
-// around 1kg iron, which has a specific heat capacity of 450J/kg*K. Since
-// we've got 1000W of heating element, that gives:
-//
-// 450J/K / 1000J/s = 0.45K/s ~> 2.2s/K
-//
-// (Since Kelvin is just degrees C with an offset.)
-//const double MAX_DELTA_SP = 2.2;
-
 // THERMOCOUPLE AMP
 Adafruit_MAX31855 tc = Adafruit_MAX31855(THERMO_CLK, THERMO_CS, THERMO_DO);
 
