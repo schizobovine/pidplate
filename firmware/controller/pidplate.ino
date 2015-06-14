@@ -8,13 +8,21 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <avr/io.h>
+#include <avr/pgmspace.h>
+
 #include <Arduino.h>
+#include <Wire.h>
+
 #include <Adafruit_GFX.h>
-#include <Adafruit_LEDBackpack.h>
+#include <Adafruit_SSD1306.h>
 #include <Adafruit_MAX31855.h>
+
 #include <PID_Controller.h>
+
 #include "usec.h"
 #include "pidplate.h"
 
@@ -27,10 +35,10 @@
 const double TEMP_SET = 260.0;
 
 // THERMOCOUPLE AMP
-Adafruit_MAX31855 tc = Adafruit_MAX31855(THERMO_CLK, THERMO_CS, THERMO_DO);
+Adafruit_MAX31855 tc(THERMO_CLK, THERMO_CS, THERMO_DO);
 
 // DISPLAY
-Adafruit_7segment display = Adafruit_7segment();
+Adafruit_SSD1306 display(DISPLAY_RST);
 
 // PID Control setup
 double currTemp = 0.0;      // input (process) var (PV)
@@ -61,9 +69,39 @@ double readThermocouple() {
 //
 // Display current temp, setpoint temp, SSR level, and time since boot
 //
-void displayTemp() {
-  display.print(currTemp);
-  display.writeDisplay();
+void refreshDisplay() {
+
+  // Format strings, stored in program memory to avoid wasting precious
+  // precious RAMz.
+  PGM_P FMT = PSTR(
+         "TC %#5.1f\367C | PWM %#3.0f"
+    "\n" ""
+    "\n" ""
+    "\n" "%4u:%2.2u:%2.2u"
+  );
+
+  // String-ify display data in a C-ish style way since the Arduino libs don't
+  // really give us any way to handle this well (which is annoying). Note that
+  // special linker flags are required to bring in the full vprintf
+  // implementation for floating point number. Check the Makefile for the
+  // voodoo.
+  char buff[21*4+1];
+  uint32_t now = millis() / 1000;
+  int h = now / 60 / 60;
+  int m = now / 60 % 60;
+  int s = now % 60;
+  snprintf_P(buff, sizeof(buff), FMT,
+    currTemp, ssrPWM,
+    h, m, s
+  );
+  buff[sizeof(buff)-1] = '\0';
+
+  // Actually shart chars to thingy
+  display.clearDisplay();
+  display.setCursor(0, 0);
+  display.println(buff);
+  display.display();
+
 }
 
 /***********************************************************************
@@ -76,22 +114,25 @@ void setup() {
   pinMode(SSR, OUTPUT);
   analogWrite(SSR, 0);
 
-  // Serial debugging
-  delay(200);
-  Serial.begin(9600);
-  Serial.println("BALLS");
-  delay(200);
-
   // Boot up display
-  display.begin(0x70);
+  Wire.begin();
+  display.begin(DISPLAY_MODE, DISPLAY_ADDR);
+  display.clearDisplay();
+  display.setTextColor(DISPLAY_COLOR);
+  display.setTextSize(DISPLAY_TEXTSIZE);
+  display.println("");
+  display.println("      PID Plate");
+  display.println("        Hello!");
+  display.display();
 
   // Setup PID algorithm: Peform two back to back readings to initialize the
   // PID controller because fuck it
   currTemp = readThermocouple();
   ctrl.setInput(currTemp);
+  delay(1000);
   currTemp = readThermocouple();
   ctrl.setInput(currTemp);
-  displayTemp();
+  delay(1000);
 
 }
 
@@ -113,8 +154,7 @@ void loop() {
   }
 
   // Update display
-  display.print(currTemp);
-  display.writeDisplay();
+  refreshDisplay();
 
   //ctrl.serialDebugDump();
 

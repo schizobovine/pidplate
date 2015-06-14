@@ -4,8 +4,13 @@
 const int THERMO_DO  = 8;
 const int THERMO_CS  = 9;
 const int THERMO_CLK = 10;
-const int SSR = 5;
-const int DISPLAY_ADDR = 0x70;
+const int SSR = 3;
+
+const int DISPLAY_RST = A3;
+const int DISPLAY_TEXTSIZE = 1;
+const int DISPLAY_COLOR = WHITE;
+const int DISPLAY_ADDR = SSD1306_I2C_ADDRESS;
+const int DISPLAY_MODE = SSD1306_SWITCHCAPVCC;
 
 // If the differences between the setpoint temp and the current temp drops
 // below this threshold, switch to more conservative (smaller delta) tuning
