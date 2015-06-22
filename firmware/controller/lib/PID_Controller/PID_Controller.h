@@ -36,7 +36,7 @@ class PIDController {
      *
      * @returns True if the output value has changed
      */
-    bool compute();
+    bool compute(usec now);
 
     //
     // Manipulate parameters

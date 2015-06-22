@@ -6,7 +6,6 @@
  *
  */
 
-#include <Arduino.h>
 #include "PID_Controller.h"
 #include "usec.h"
 
@@ -63,8 +62,7 @@ PIDController::PIDController(
  * I'm not going to assume perfect scheduling.
  *
  */
-bool PIDController::compute() {
-  usec now = millis();
+bool PIDController::compute(usec now) {
   usec diff = USEC_DIFF(now, lastTime);
   bool retval = false;
 
@@ -81,7 +79,11 @@ bool PIDController::compute() {
     double o = output + dp + di - dd;
 
     // Check for output saturation
-    o = constrain(o, outputMin, outputMax);
+    if (o < outputMin) {
+      o = outputMin;
+    } else if (o > outputMax) {
+      o = outputMax;
+    }
     output = o;
 
     // Save for next time
@@ -158,6 +160,7 @@ void PIDController::setBounds(double newOutputMin, double newOutputMax) {
   outputMax = newOutputMax;
 }
 
+#if 0
 void PIDController::serialDebugDump() {
 
   Serial.print("input="); Serial.print(input);
@@ -175,3 +178,4 @@ void PIDController::serialDebugDump() {
     ;
 
 }
+#endif

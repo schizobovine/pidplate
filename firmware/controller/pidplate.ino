@@ -168,7 +168,7 @@ void loop() {
 
   // Input temp to PID controller & calculate current PWM level
   ctrl.setInput(currTemp);
-  if (ctrl.compute()) {
+  if (ctrl.compute(millis())) {
     lastPWM = ssrPWM;
     ssrPWM = ctrl.getOutput();
     analogWrite(SSR, ssrPWM);

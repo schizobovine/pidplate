@@ -4,7 +4,8 @@ BOARD_TAG     := uno
 ARDUINO_PORT  := /dev/ttyUSB0
 #ARDUINO_PORT  := /dev/rfcomm0
 #AVRDUDE_ARD_BAUDRATE := 9600
-USER_LIB_PATH := $(realpath $(HOME)/sketchbook/libraries/)
+#USER_LIB_PATH := $(realpath $(HOME)/sketchbook/libraries/)
+USER_LIB_PATH := $(realpath ./lib)
 CXXFLAGS      += -std=gnu++11 -Wl,-u,vfprintf
 CFLAGS        += -std=gnu++11 -Wl,-u,vfprintf
 LDFLAGS       += -lprintf_flt -lm -Wl,-u,vfprintf
