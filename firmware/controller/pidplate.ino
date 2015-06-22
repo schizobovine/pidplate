@@ -31,8 +31,7 @@
  ***********************************************************************/
 
 // The eventual temperature we want to hit
-//const double TEMP_SET = 260.0;
-const double TEMP_SET = 260.0;
+const double TEMP_SET = 50.0;
 
 // THERMOCOUPLE AMP
 Adafruit_MAX31855 tc(THERMO_CLK, THERMO_CS, THERMO_DO);
@@ -45,8 +44,11 @@ double currTemp = 0.0;      // input (process) var (PV)
 double setTemp  = TEMP_SET; // set point var (SP)
 double ssrPWM   = 0.0;      // output (controlled) var (CV)
 double lastPWM  = NAN;      // last value of CV to print changes
+PID ctrl = PID();
 
-PID ctrl = PID(setTemp, TUNE_SLOW_P, TUNE_SLOW_I, TUNE_SLOW_D);
+// Serial debugging setup
+usec last_blat = 0;
+usec BLAT_INT = 1;
 
 /***********************************************************************
  * "Helping"
@@ -74,10 +76,10 @@ void refreshDisplay() {
   // Format strings, stored in program memory to avoid wasting precious
   // precious RAMz.
   PGM_P FMT = PSTR(
-         "TC %#5.1f\367C | PWM %#3.0f"
-    "\n" ""
-    "\n" ""
-    "\n" "%4u:%2.2u:%2.2u"
+         "Temp %#5.1f\367C"
+    "\n" "SetP %#5.1f\367C"
+    "\n" "PWM      %3.0f"
+    "\n" "  %2.2u:%2.2u:%2.2u"
   );
 
   // String-ify display data in a C-ish style way since the Arduino libs don't
@@ -87,11 +89,11 @@ void refreshDisplay() {
   // voodoo.
   char buff[21*4+1];
   uint32_t now = millis() / 1000;
-  int h = now / 60 / 60;
+  int h = now / 60 / 60 % 100;
   int m = now / 60 % 60;
   int s = now % 60;
   snprintf_P(buff, sizeof(buff), FMT,
-    currTemp, ssrPWM,
+    currTemp, setTemp, ssrPWM,
     h, m, s
   );
   buff[sizeof(buff)-1] = '\0';
@@ -101,6 +103,12 @@ void refreshDisplay() {
   display.setCursor(0, 0);
   display.println(buff);
   display.display();
+
+  if (USEC_DIFF(now, last_blat) > BLAT_INT) {
+    last_blat = now;
+    Serial.println(buff);
+    Serial.println();
+  }
 
 }
 
@@ -125,14 +133,27 @@ void setup() {
   display.println("        Hello!");
   display.display();
 
-  // Setup PID algorithm: Peform two back to back readings to initialize the
-  // PID controller because fuck it
+  // Setup PID algorithm
+  ctrl.setSP(setTemp);
+  ctrl.setKp(TUNE_KP);
+  ctrl.setKi(TUNE_KI);
+  ctrl.setKd(TUNE_KD);
+  ctrl.setDt(TUNE_KF);
+  ctrl.setOutputMin(OUTPUT_MIN);
+  ctrl.setOutputMax(OUTPUT_MAX);
+
+  // Peform two back to back readings to initialize the PID controller, so we
+  // don't have to deal with the huge derivative term that results from a
+  // sudden change in temp.
   currTemp = readThermocouple();
   ctrl.setInput(currTemp);
   delay(1000);
   currTemp = readThermocouple();
   ctrl.setInput(currTemp);
   delay(1000);
+
+  Serial.begin(9600);
+  Serial.println("Hello!");
 
 }
 
@@ -155,7 +176,5 @@ void loop() {
 
   // Update display
   refreshDisplay();
-
-  //ctrl.serialDebugDump();
 
 }

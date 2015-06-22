@@ -28,9 +28,6 @@ class PIDController {
      * @param outputMax Maximum value for output (to control windup)
      *
      */
-    //PIDController(double input, double output, double sp, double kp, double ki, double kd, bool reversed, usec dt, double outputMin, double outputMax);
-    //PIDController(double sp, double kp, double ki, double kd, bool reversed=false, usec dt=100, double outputMin=0.0, double outputMax=255.0);
-    //PIDController(double sp, double kp, double ki, double kd, bool reversed, usec dt, double outputMin, double outputMax);
     PIDController(double sp, double kp, double ki, double kd);
     PIDController();
 
