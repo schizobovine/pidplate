@@ -62,3 +62,11 @@ double  PIDSimulator::setLastTemp(double temp) {
   lastTemp = temp;
   return lastTemp;
 }
+
+double PIDSimulator::getStoredHeat() {
+  return qStored;
+}
+
+double PIDSimulator::getFinalTemp() {
+  return ambient + (qVested + qStored) / heatCap;
+}

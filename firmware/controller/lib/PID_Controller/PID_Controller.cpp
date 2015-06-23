@@ -11,8 +11,9 @@
 
 PIDController::PIDController() {
   //lastTime = millis() - dt;
+  iTerm = 0.0;
   lastInput = 0.0;
-  lastDelta = 0.0;
+  //lastDelta = 0.0;
 }
 
 PIDController::PIDController(
@@ -33,32 +34,22 @@ PIDController::PIDController(
 }
 
 /**
- * Magic happens here. Formula used (velocity form, re-rewitten in
- * idealized/independent form):
+ * Magic happens here. Formula used, idealized form since I grok it better:
  *
- *    d                 d                           d
- *   -- output += kp * -- e(t) + ki * e(t) - kd * ---- input
- *   dt                dt                         dt^2
+ *                                                      d
+ * output = Kp * e(t) + Ki * Integral(e(t), dt) + Kd * -- e(t)
+ *                                                     dt
  *
- * e(t) = set_point - input
- *
- * 1) This idealized form is converted to code by approximating both
- * derrivatives using data from the previous loop runs and the time interval
- * between.
+ * 1) This idealized form is converted to code by approximating both the
+ * integral and derrivative terms using data from the previous loop runs and
+ * the time interval between.
  *
  * 2) The derrivative term is based on the change in input rather than the
  * error compared to set point. This avoids "derrivative kick" from a massive
  * change in set point, such as would happen on startup (where the lastInput is
  * always 0).
  *
- * 3) The velocity form is being used to avoid integration wind-up, which
- * causes the output to max out and significant error to accumulate over time.
- * This causes things to take way longer than they should to settle down.
- *
- * 4) Using the velocity form has drawbacks, namely it tends to amplify noise
- * in the signal rather than drown it out over time.
- *
- * 5) Using actual time difference rather than assuming it will be dt, since
+ * 3) Using actual time difference rather than assuming it will be dt, since
  * I'm not going to assume perfect scheduling.
  *
  */
@@ -67,16 +58,26 @@ bool PIDController::compute(usec now) {
   bool retval = false;
 
   if (diff >= dt) {
+
+    // Pre-calculate some terms
     double e = sp - input;
-    double e_1 = sp - lastInput;
     double t = diff / 1000.0;
     double delta = input - lastInput;
 
-    double dp = kp * (e - e_1);
-    double di = ki * e * t;
-    double dd = kd * (delta - lastDelta);
-
-    double o = output + dp + di - dd;
+    // Add error to accumulator/integrator, factoring in actual time difference
+    // by using ratio of the time passed and the nominal sample period.
+    iTerm += ki * e * (t / dt);
+    
+    // Bound integrator to prevent significant error accumulation (i.e., no
+    // more than could be fixed by a single cycle going to 0.
+    if (iTerm > outputMax) {
+      iTerm = outputMax;
+    } else if (iTerm < outputMin) {
+      iTerm = outputMin;
+    }
+    
+    // Calculate new output
+    double o = (kp * e) + iTerm + (kd * delta);
 
     // Check for output saturation
     if (o < outputMin) {
@@ -89,7 +90,7 @@ bool PIDController::compute(usec now) {
     // Save for next time
     lastTime = now;
     lastInput = input;
-    lastDelta = delta;
+    //lastDelta = delta;
 
     retval = true;
   }
@@ -97,16 +98,17 @@ bool PIDController::compute(usec now) {
   return retval;
 }
 
-double PIDController::getInput()     { return input; }
-double PIDController::getOutput()    { return output; }
-double PIDController::getSP()        { return sp; }
-double PIDController::getKp()        { return kp; }
-double PIDController::getKi()        { return ki; }
-double PIDController::getKd()        { return kd; }
-bool PIDController::isReversed()     { return reversed; }
-usec PIDController::getDt()          { return dt; }
-double PIDController::getOutputMin() { return outputMin; }
-double PIDController::getOutputMax() { return outputMax; }
+double PIDController::getInput()         { return input; }
+double PIDController::getOutput()        { return output; }
+double PIDController::getSP()            { return sp; }
+double PIDController::getKp()            { return kp; }
+double PIDController::getKi()            { return ki; }
+double PIDController::getKd()            { return kd; }
+bool PIDController::isReversed()         { return reversed; }
+usec PIDController::getDt()              { return dt; }
+double PIDController::getOutputMin()     { return outputMin; }
+double PIDController::getOutputMax()     { return outputMax; }
+double PIDController::getIntegralTerm()  { return iTerm; }
 
 void PIDController::setInput(double newInput) {
   lastInput = input;

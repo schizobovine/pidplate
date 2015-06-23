@@ -31,6 +31,8 @@ class PIDSimulator {
     double calculate(double powerLevel, usec now);
     double getLastTemp();
     double setLastTemp(double temp);
+    double getStoredHeat();
+    double getFinalTemp();
 
   private:
 

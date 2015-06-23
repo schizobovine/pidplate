@@ -2,7 +2,7 @@ PROG=pidsim
 CC=g++
 CFLAGS+=-std=gnu++11 -g -pipe -Wall -g -O0
 CXXFLAGS+=-std=gnu++11 -g -pipe -Wall -g -O0
-#LDFLAGS+=
+LDFLAGS+=-lm
 
 .PHONY: all
 

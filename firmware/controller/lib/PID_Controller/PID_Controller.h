@@ -68,7 +68,8 @@ class PIDController {
     usec getDt();
     double getOutputMin();
     double getOutputMax();
-    void serialDebugDump();
+    double getIntegralTerm();
+    //void serialDebugDump();
 
   private:
     void setOutput(double newOutput);
@@ -87,6 +88,9 @@ class PIDController {
     // overshoot).
     double outputMin = 0.0;
     double outputMax = 255.0;
+    
+    // Integral term, to keep up with the accumulated error
+    double iTerm = 0.0;
 
     // From the last time calcuate was called
     usec lastTime = 0L;
@@ -97,7 +101,7 @@ class PIDController {
 
     // Rate of input change from last calculation for second derrivative
     // approximation (so we can use the velocity form of PID)
-    double lastDelta = 0.0;
+    //double lastDelta = 0.0;
 };
 
 typedef class PIDController PID;
