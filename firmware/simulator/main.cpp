@@ -6,11 +6,11 @@
 #include "PID_Controller.h"
 #include "PID_Simulator.h"
 
-const double SP = 260.0;  // Set point (C)
-const double KP = 0.61;   // Proportional tuning term
-const double KI = -0.1; // Integral tuning term
-const double KD = 0.0;    // Derivative tuning term
-const double KF = 200.0;  // Update frequency (s)
+const double SP = 260.0; // Set point (C)
+const double KP = 0.61;  // Proportional tuning term
+const double KI = -0.1;  // Integral tuning term
+const double KD = 0.0;   // Derivative tuning term
+const double DT = 200.0; // Update frequency (ms)
 
 // Starting temperature
 const double START_TEMP = 25.0;
@@ -31,19 +31,31 @@ int main(int argc, char **argv) {
   double pwm_last = 0.0;
   double temp = START_TEMP;
 
+  double sp = (argc > 1) ? strtod(argv[1], NULL) : SP;
+  double kp = (argc > 2) ? strtod(argv[2], NULL) : KP;
+  double ki = (argc > 3) ? strtod(argv[3], NULL) : KI;
+  double kd = (argc > 4) ? strtod(argv[4], NULL) : KD;
+  double dt = DT;
+
+  fprintf(stderr, "sp = %f\n", sp);
+  fprintf(stderr, "kp = %f\n", kp);
+  fprintf(stderr, "ki = %f\n", ki);
+  fprintf(stderr, "kd = %f\n", kd);
+  fprintf(stderr, "dt = %f\n", dt);
+
   ctrl = new PID();
-  ctrl->setSP(SP);
-  ctrl->setKp(KP);
-  ctrl->setKi(KI);
-  ctrl->setKd(KD);
-  ctrl->setDt(KF);
+  ctrl->setSP(sp);
+  ctrl->setKp(kp);
+  ctrl->setKi(ki);
+  ctrl->setKd(kd);
+  ctrl->setDt(dt);
   ctrl->setInput(temp);
 
   sim = new PIDSim();
   sim->setLastTemp(START_TEMP);
 
   printf("time,pwm_curr,curr_temp,iterm,final_temp\n");
-  for (usec t=0; t<RUNTIME; t+=KF) {
+  for (usec t=0; t<RUNTIME; t+=DT) {
 
     // Calculate current temp based on controller's settings
     temp = sim->calculate(pwm_curr, t);
@@ -61,7 +73,7 @@ int main(int argc, char **argv) {
     // predicts no more temperature change, this means stored heat is now
     // balanced by ambient loss, so we can exit.
     if (fabs(pwm_curr - pwm_last) < PWM_THRESHOLD && fabs(temp - sim->getFinalTemp()) < TEMP_THRESHOLD) {
-      printf("Stead-state reached, exiting...\n");
+      fprintf(stderr, "Stead-state reached, exiting...\n");
       return EXIT_SUCCESS;
     }
 
