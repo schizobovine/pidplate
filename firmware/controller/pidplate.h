@@ -21,10 +21,10 @@ const int DISPLAY_MODE = SSD1306_SWITCHCAPVCC;
 //
 // Tuning parameters
 //
-#define TUNE_KP (10.0) // (P)roportional term
+#define TUNE_KP (0.6) // (P)roportional term
 #define TUNE_KI (0.1)  // (I)ntergral term
-#define TUNE_KD (2.0)  // (D)erivative term
-#define TUNE_KF (200)  // (F)requency of checks (ms)
+#define TUNE_KD (0.0)  // (D)erivative term
+#define TUNE_KF (1000) // (F)requency of checks (ms)
 
 //
 // PWM output bounds

@@ -46,9 +46,13 @@ double ssrPWM   = 0.0;      // output (controlled) var (CV)
 double lastPWM  = NAN;      // last value of CV to print changes
 PID ctrl = PID();
 
+#define DEBUG 1
+
+#if DEBUG
 // Serial debugging setup
 usec last_blat = 0;
 usec BLAT_INT = 1;
+#endif
 
 /***********************************************************************
  * "Helping"
@@ -104,11 +108,15 @@ void refreshDisplay() {
   display.println(buff);
   display.display();
 
+#if DEBUG
   if (USEC_DIFF(now, last_blat) > BLAT_INT) {
     last_blat = now;
-    Serial.println(buff);
-    Serial.println();
+    Serial.print(now); Serial.print(",");
+    Serial.print(currTemp); Serial.print(",");
+    Serial.print(ssrPWM); Serial.print(",");
+    Serial.println(ctrl.getIntegralTerm());
   }
+#endif
 
 }
 
@@ -152,8 +160,10 @@ void setup() {
   ctrl.setInput(currTemp);
   delay(1000);
 
+#if DEBUG
   Serial.begin(9600);
-  Serial.println("Hello!");
+  Serial.println("time_ms,temp_c,pwm,acc");
+#endif
 
 }
 
