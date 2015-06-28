@@ -34,6 +34,12 @@ Adafruit_MAX31855 tc(THERMO_CLK, THERMO_CS, THERMO_DO);
 // DISPLAY
 Adafruit_SSD1306 display(DISPLAY_RST);
 
+// UART data speed
+const int SERIAL_BAUD = 9600;
+
+// Milliseconds since start of run
+usec time_start = 0;
+
 // Milliseconds since last serial logging
 usec time_last_dump = 0;
 
@@ -64,7 +70,7 @@ double readThermocouple() {
 //
 // Display current temp, setpoint temp, SSR level, and time since boot
 //
-void refreshDisplay() {
+void refreshDisplay(usec now) {
 
   // Format strings, stored in program memory to avoid wasting precious
   // precious RAMz.
@@ -81,7 +87,6 @@ void refreshDisplay() {
   // implementation for floating point number. Check the Makefile for the
   // voodoo.
   char buff[21*4+1];
-  uint32_t now = millis();
   int h = now / 1000 / 60 / 60 % 100;
   int m = now / 1000 / 60 % 60;
   int s = now / 1000 % 60;
@@ -99,24 +104,12 @@ void refreshDisplay() {
 //
 // Output current time, temp, and SSR level to serial port
 //
-void outputData() {
-
-  // Format strings, stored in program memory to avoid wasting precious
-  // precious RAMz.
-  PGM_P FMT = PSTR("%10.0lu,%5.1f,%3.0f");
-
-  // String-ify display data in a C-ish style way since the Arduino libs don't
-  // really give us any way to handle this well (which is annoying). Note that
-  // special linker flags are required to bring in the full vprintf
-  // implementation for floating point number. Check the Makefile for the
-  // voodoo.
-  char buff[32];
-  snprintf_P(buff, sizeof(buff), FMT, millis(), last_temp, ssrPWM);
-  buff[sizeof(buff)-1] = '\0';
-
-  // Actually shart chars to port
-  Serial.println(buff);
-
+void outputData(usec now) {
+  Serial.print(now);
+  Serial.print(",");
+  Serial.print(last_temp);
+  Serial.print(",");
+  Serial.println(ssrPWM);
 }
 
 /***********************************************************************
@@ -141,8 +134,18 @@ void setup() {
   display.display();
 
   // Initialize serial port after waiting a sec
-  delay(1000);
-  Serial.begin(9600);
+  Serial.begin(SERIAL_BAUD);
+  while (!Serial)
+    ;
+
+  // Wait for someone to pick up the phone
+  while (!Serial.find(TOKEN_START))
+    ;
+
+  // Begin data dump
+  time_start = millis();
+  time_last_dump = time_start - LOG_INTERVAL_MS;
+  Serial.println();
   Serial.println("time_ms,temp_c,pwm");
 
 }
@@ -162,7 +165,7 @@ void loop() {
   uint32_t now = millis();
 
   // Figure out if SSR needs to be ON or OFF
-  if (now <= RUN_TIME) {
+  if (USEC_DIFF(now, time_start) <= RUN_TIME) {
     if (ssrPWM <= 0) {
       ssrPWM = RUN_LEVEL;
       analogWrite(SSR, ssrPWM);
@@ -175,11 +178,13 @@ void loop() {
   }
 
   // Update display
-  refreshDisplay();
+  refreshDisplay(now);
 
   // If it's time, dump serial data
   if (USEC_DIFF(now, time_last_dump) >= LOG_INTERVAL_MS) {
-    outputData();
+    outputData(now);
   }
 
 }
+
+// vi: syntax=arduino sw=2 ts=2

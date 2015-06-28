@@ -40,4 +40,9 @@ const usec RUN_TIME = 32 * 1000;
 //
 const double RUN_LEVEL = 255.0;
 
+//
+// Start message to look for on serial connection
+//
+#define TOKEN_START "START"
+
 #endif
