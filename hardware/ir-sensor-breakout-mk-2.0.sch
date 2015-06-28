@@ -3595,6 +3595,241 @@ Yageo CFR series &lt;a href="http://www.yageo.com/pdf/yageo/Leaded-R_CFR_2008.pd
 <wire x1="0.9525" y1="0.508" x2="1.143" y2="0" width="0.1524" layer="21"/>
 <wire x1="1.143" y1="0" x2="1.6" y2="0" width="0.1524" layer="21"/>
 </package>
+<package name="2,8">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 2.8 mm with drill center</description>
+<wire x1="-1.778" y1="0" x2="0" y2="-1.778" width="2.286" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="1.778" x2="1.778" y2="0" width="2.286" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="0.635" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="2.921" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="2.54" width="2.032" layer="40"/>
+<circle x="0" y="0" radius="2.54" width="2.032" layer="39"/>
+<circle x="0" y="0" radius="2.54" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="2.54" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="2.54" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="1.6256" width="0.2032" layer="21"/>
+<hole x="0" y="0" drill="2.8"/>
+</package>
+<package name="3,0">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 3.0 mm with drill center</description>
+<wire x1="-2.159" y1="0" x2="0" y2="-2.159" width="2.4892" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="2.4892" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="3.429" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="39"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="40"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="1.6" width="0.2032" layer="21"/>
+<text x="-1.27" y="-3.81" size="1.27" layer="48">3,0</text>
+<hole x="0" y="0" drill="3"/>
+</package>
+<package name="3,3">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 3.3 mm with drill center</description>
+<wire x1="-2.159" y1="0" x2="0" y2="-2.159" width="2.4892" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="2.4892" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="3.429" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.048" width="2.54" layer="39"/>
+<circle x="0" y="0" radius="3.048" width="2.54" layer="40"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="1.75" width="0.2032" layer="21"/>
+<hole x="0" y="0" drill="3.3"/>
+</package>
+<package name="3,6">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 3.6 mm with drill center</description>
+<wire x1="-2.159" y1="0" x2="0" y2="-2.159" width="2.4892" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="2.4892" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="3.429" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.048" width="2.7686" layer="39"/>
+<circle x="0" y="0" radius="3.048" width="2.7686" layer="40"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="1.9" width="0.2032" layer="21"/>
+<hole x="0" y="0" drill="3.6"/>
+</package>
+<package name="4,1">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 4.1 mm with drill center</description>
+<wire x1="-2.54" y1="0" x2="0" y2="-2.54" width="3.9116" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="3.9116" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="4.4958" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="39"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="40"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="41"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="42"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="43"/>
+<circle x="0" y="0" radius="2.15" width="0.1524" layer="21"/>
+<hole x="0" y="0" drill="4.1"/>
+</package>
+<package name="4,5">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 4.5 mm with drill center</description>
+<wire x1="4.445" y1="0" x2="2.159" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="4.445" x2="0" y2="2.159" width="0.0508" layer="21"/>
+<wire x1="-2.159" y1="0" x2="-4.445" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="-2.159" x2="0" y2="-4.445" width="0.0508" layer="21"/>
+<wire x1="-2.54" y1="0" x2="0" y2="-2.54" width="3.9116" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="3.9116" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="4.4958" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="39"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="40"/>
+<circle x="0" y="0" radius="3.8184" width="2.54" layer="41"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="42"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="43"/>
+<circle x="0" y="0" radius="2.35" width="0.1524" layer="21"/>
+<text x="-1.27" y="-4.445" size="1.27" layer="48">4,5</text>
+<hole x="0" y="0" drill="4.5"/>
+</package>
+<package name="5,0">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 5.0 mm with drill center</description>
+<wire x1="4.445" y1="0" x2="2.159" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="4.445" x2="0" y2="2.159" width="0.0508" layer="21"/>
+<wire x1="-2.159" y1="0" x2="-4.445" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="-2.159" x2="0" y2="-4.445" width="0.0508" layer="21"/>
+<wire x1="-2.54" y1="0" x2="0" y2="-2.54" width="3.9116" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="3.9116" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="4.4958" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="39"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="40"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="43"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="42"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="41"/>
+<circle x="0" y="0" radius="2.6" width="0.1524" layer="21"/>
+<text x="-1.27" y="-4.445" size="1.27" layer="48">5,0</text>
+<hole x="0" y="0" drill="5"/>
+</package>
+<package name="3,2">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 3.2 mm with drill center</description>
+<wire x1="-2.159" y1="0" x2="0" y2="-2.159" width="2.4892" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="2.4892" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="3.429" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="39"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="40"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="3.048" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="1.7" width="0.2032" layer="21"/>
+<hole x="0" y="0" drill="3.2"/>
+</package>
+<package name="4,3">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 4.3 mm with drill center</description>
+<wire x1="-2.54" y1="0" x2="0" y2="-2.54" width="3.9116" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="3.9116" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="4.4958" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.1524" layer="51"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="39"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="40"/>
+<circle x="0" y="0" radius="3.8184" width="2.54" layer="41"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="42"/>
+<circle x="0" y="0" radius="3.81" width="2.54" layer="43"/>
+<circle x="0" y="0" radius="2.25" width="0.1524" layer="21"/>
+<hole x="0" y="0" drill="4.3"/>
+</package>
+<package name="5,5">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; 5.5 mm with drill center</description>
+<wire x1="4.445" y1="0" x2="2.159" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="4.445" x2="0" y2="2.159" width="0.0508" layer="21"/>
+<wire x1="-2.159" y1="0" x2="-4.445" y2="0" width="0.0508" layer="21"/>
+<wire x1="0" y1="-2.159" x2="0" y2="-4.445" width="0.0508" layer="21"/>
+<wire x1="-2.54" y1="0" x2="0" y2="-2.54" width="3.9116" layer="51" curve="90" cap="flat"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="0" width="3.9116" layer="51" curve="-90" cap="flat"/>
+<circle x="0" y="0" radius="4.4958" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="0.762" width="0.4572" layer="51"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="39"/>
+<circle x="0" y="0" radius="4.699" width="4.5466" layer="40"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="43"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="42"/>
+<circle x="0" y="0" radius="4.826" width="2.54" layer="41"/>
+<circle x="0" y="0" radius="2.85" width="0.1524" layer="21"/>
+<hole x="0" y="0" drill="5.5"/>
+</package>
+<package name="2,5">
+<circle x="0" y="0" radius="2.5" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="2.2" width="2.032" layer="40"/>
+<circle x="0" y="0" radius="2.2" width="2.032" layer="39"/>
+<circle x="0" y="0" radius="2.2" width="2.032" layer="41"/>
+<circle x="0" y="0" radius="2.2" width="2.032" layer="42"/>
+<circle x="0" y="0" radius="2.2" width="2.032" layer="43"/>
+<circle x="0" y="0" radius="1.5" width="0.2032" layer="21"/>
+<hole x="0" y="0" drill="2.5"/>
+</package>
+<package name="HOLE-#2">
+<circle x="0" y="0" radius="2.25" width="0" layer="39"/>
+<hole x="0" y="0" drill="2.5"/>
+<wire x1="-1.8" y1="0" x2="0" y2="1.8" width="0.9" layer="21" curve="-90" cap="flat"/>
+<wire x1="1.8" y1="0" x2="0" y2="-1.8" width="0.9" layer="21" curve="-90" cap="flat"/>
+<wire x1="1.8" y1="0" x2="0" y2="1.8" width="0.9" layer="22" curve="90" cap="flat"/>
+<wire x1="-1.8" y1="0" x2="0" y2="-1.8" width="0.9" layer="22" curve="90" cap="flat"/>
+<circle x="0" y="0" radius="2.25" width="0" layer="40"/>
+<circle x="0" y="0" radius="2.25" width="0" layer="43"/>
+<circle x="0" y="0" radius="1.9" width="0" layer="41"/>
+<circle x="0" y="0" radius="1.9" width="0" layer="42"/>
+</package>
+<package name="HOLE-#4">
+<circle x="0" y="0" radius="2.921" width="0.3048" layer="21"/>
+<polygon width="0.1524" layer="40">
+<vertex x="-3.175" y="0" curve="-90"/>
+<vertex x="0" y="3.175" curve="-90"/>
+<vertex x="3.175" y="0" curve="-90"/>
+<vertex x="0" y="-3.175" curve="-90"/>
+</polygon>
+<polygon width="0.1524" layer="39">
+<vertex x="-3.175" y="0" curve="-90"/>
+<vertex x="0" y="3.175" curve="-90"/>
+<vertex x="3.175" y="0" curve="-90"/>
+<vertex x="0" y="-3.175" curve="-90"/>
+</polygon>
+<pad name="P$1" x="0" y="0" drill="3.2" diameter="5.715" stop="no"/>
+<polygon width="0.1524" layer="29">
+<vertex x="0" y="-2.032" curve="-90"/>
+<vertex x="-2.032" y="0" curve="-90"/>
+<vertex x="0" y="2.032" curve="-90"/>
+<vertex x="2.032" y="0" curve="-90"/>
+</polygon>
+</package>
+<package name="HOLE-2.5MM">
+<pad name="P$1" x="0" y="0" drill="2.5" diameter="3" stop="no" thermals="no"/>
+<circle x="0" y="0" radius="1.25" width="0" layer="29"/>
+<circle x="0" y="0" radius="1.25" width="0" layer="30"/>
+<circle x="0" y="0" radius="1.375" width="0.25" layer="21"/>
+<circle x="0" y="0" radius="1.375" width="0.25" layer="22"/>
+</package>
+<package name="HOLE-2MM">
+<pad name="P$1" x="0" y="0" drill="2" diameter="2.5" stop="no" thermals="no"/>
+<circle x="0" y="0" radius="1" width="0" layer="29"/>
+<circle x="0" y="0" radius="1" width="0" layer="30"/>
+<circle x="0" y="0" radius="1.125" width="0.25" layer="21"/>
+<circle x="0" y="0" radius="1.125" width="0.25" layer="22"/>
+</package>
+<package name="HOLE-3.0MM">
+<circle x="0" y="0" radius="3.4" width="0.2" layer="21"/>
+<circle x="0" y="0" radius="1.7" width="0.2" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="3" diameter="3.5" stop="no" thermals="no"/>
+<circle x="0" y="0" radius="1.6" width="0" layer="29"/>
+<circle x="0" y="0" radius="1.6" width="0" layer="30"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="39"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="40"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="41"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="42"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="43"/>
+</package>
+<package name="HOLE-3.0MM-NOMETAL">
+<circle x="0" y="0" radius="3.4" width="0.2" layer="21"/>
+<circle x="0" y="0" radius="1.7" width="0.2" layer="21"/>
+<hole x="0" y="0" drill="3"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="39"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="40"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="41"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="42"/>
+<circle x="0" y="0" radius="3.5" width="0" layer="43"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LETTER_L">
@@ -3698,6 +3933,14 @@ Yageo CFR series &lt;a href="http://www.yageo.com/pdf/yageo/Leaded-R_CFR_2008.pd
 <text x="0" y="-1.27" size="1.778" layer="96" align="top-center">&gt;VALUE</text>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="HOLE">
+<wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
+<wire x1="-1.27" y1="0" x2="0" y2="-1.27" width="1.524" layer="94" curve="90" cap="flat"/>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.0508" layer="94"/>
+<wire x1="0" y1="0.508" x2="0" y2="-0.508" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="2.032" width="0.0508" layer="94"/>
+<circle x="0" y="0" radius="0.508" width="0.0508" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5471,6 +5714,99 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </device>
 </devices>
 </deviceset>
+<deviceset name="HOLE" prefix="H">
+<description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; with drill center marker</description>
+<gates>
+<gate name="G$1" symbol="HOLE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="2.8" package="2,8">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3.0" package="3,0">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3.3" package="3,3">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3.6" package="3,6">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="4.1" package="4,1">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="4.5" package="4,5">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="5.0" package="5,0">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3.2" package="3,2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="4.3" package="4,3">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="5.5" package="5,5">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2,5" package="2,5">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="#2" package="HOLE-#2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="#4" package="HOLE-#4">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2.5MM" package="HOLE-2.5MM">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2MM" package="HOLE-2MM">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3MM" package="HOLE-3.0MM">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3MM-NOMETAL" package="HOLE-3.0MM-NOMETAL">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -5489,14 +5825,18 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="I2C" library="A_butts" deviceset="M04" device="JST-PTH-VERT" value="M04JST-PTH-VERT"/>
 <part name="U1" library="A_butts" deviceset="MLX90614" device="5V-PTH"/>
 <part name="C1" library="A_butts" deviceset="CAPACITOR-CERAMIC" device="025-024X044" value="100nF"/>
-<part name="R1" library="A_butts" deviceset="RESISTOR" device="PTH-AXIAL-7.62MM" value="10k"/>
-<part name="R2" library="A_butts" deviceset="RESISTOR" device="PTH-AXIAL-7.62MM" value="10k"/>
+<part name="R1" library="A_butts" deviceset="RESISTOR" device="PTH-AXIAL-5.08MM" value="10k"/>
+<part name="R2" library="A_butts" deviceset="RESISTOR" device="PTH-AXIAL-5.08MM" value="10k"/>
 <part name="SUPPLY2" library="A_butts" deviceset="VCC" device=""/>
 <part name="GND2" library="A_butts" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="A_butts" deviceset="VCC" device=""/>
 <part name="SUPPLY4" library="A_butts" deviceset="VCC" device=""/>
-<part name="GND4" library="A_butts" deviceset="GND" device=""/>
-<part name="SUPPLY6" library="A_butts" deviceset="VCC" device=""/>
+<part name="H1" library="A_butts" deviceset="HOLE" device="#2"/>
+<part name="H2" library="A_butts" deviceset="HOLE" device="#2"/>
+<part name="H3" library="A_butts" deviceset="HOLE" device="#2"/>
+<part name="H4" library="A_butts" deviceset="HOLE" device="#2"/>
+<part name="GND3" library="A_butts" deviceset="GND" device=""/>
+<part name="SUPPLY5" library="A_butts" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5507,7 +5847,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="FRAME1" gate="V" x="154.94" y="0"/>
 <instance part="SUPPLY1" gate="G$1" x="76.2" y="83.82"/>
 <instance part="GND1" gate="1" x="76.2" y="60.96"/>
-<instance part="I2C" gate="G$1" x="38.1" y="66.04" rot="MR180"/>
+<instance part="I2C" gate="G$1" x="40.64" y="63.5"/>
 <instance part="U1" gate="G$1" x="88.9" y="73.66"/>
 <instance part="C1" gate="G$1" x="114.3" y="43.18"/>
 <instance part="R1" gate="G$1" x="124.46" y="43.18" rot="R90"/>
@@ -5516,8 +5856,12 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="GND2" gate="1" x="114.3" y="33.02"/>
 <instance part="SUPPLY3" gate="G$1" x="124.46" y="50.8"/>
 <instance part="SUPPLY4" gate="G$1" x="134.62" y="50.8"/>
-<instance part="GND4" gate="1" x="55.88" y="55.88"/>
-<instance part="SUPPLY6" gate="G$1" x="55.88" y="66.04"/>
+<instance part="H1" gate="G$1" x="5.08" y="180.34"/>
+<instance part="H2" gate="G$1" x="243.84" y="180.34"/>
+<instance part="H3" gate="G$1" x="243.84" y="33.02"/>
+<instance part="H4" gate="G$1" x="5.08" y="5.08"/>
+<instance part="GND3" gate="1" x="58.42" y="55.88"/>
+<instance part="SUPPLY5" gate="G$1" x="58.42" y="66.04"/>
 </instances>
 <busses>
 </busses>
@@ -5545,10 +5889,10 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="76.2" y1="81.28" x2="78.74" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="43.18" y1="63.5" x2="55.88" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="SUPPLY6" gate="G$1" pin="VCC"/>
-<wire x1="55.88" y1="63.5" x2="55.88" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="I2C" gate="G$1" pin="3"/>
+<wire x1="45.72" y1="63.5" x2="58.42" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="SUPPLY5" gate="G$1" pin="VCC"/>
+<wire x1="58.42" y1="63.5" x2="58.42" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="I2C" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5564,10 +5908,10 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="76.2" y1="66.04" x2="78.74" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="43.18" y1="60.96" x2="55.88" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="60.96" x2="55.88" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="I2C" gate="G$1" pin="4"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="45.72" y1="60.96" x2="58.42" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="60.96" x2="58.42" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="I2C" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -5582,9 +5926,9 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <label x="124.46" y="35.56" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="66.04" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
-<label x="45.72" y="66.04" size="1.27" layer="95" xref="yes"/>
-<pinref part="I2C" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="66.04" x2="45.72" y2="66.04" width="0.1524" layer="91"/>
+<label x="48.26" y="66.04" size="1.27" layer="95" xref="yes"/>
+<pinref part="I2C" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -5599,9 +5943,9 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <label x="134.62" y="35.56" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
-<label x="45.72" y="68.58" size="1.27" layer="95" xref="yes"/>
-<pinref part="I2C" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="68.58" x2="45.72" y2="68.58" width="0.1524" layer="91"/>
+<label x="48.26" y="68.58" size="1.27" layer="95" xref="yes"/>
+<pinref part="I2C" gate="G$1" pin="4"/>
 </segment>
 </net>
 </nets>
