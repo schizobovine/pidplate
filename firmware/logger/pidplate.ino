@@ -105,11 +105,12 @@ void refreshDisplay(usec now) {
 // Output current time, temp, and SSR level to serial port
 //
 void outputData(usec now) {
-  Serial.print(now);
-  Serial.print(",");
-  Serial.print(last_temp);
-  Serial.print(",");
-  Serial.println(ssrPWM);
+  Serial.print(now, DEC);
+  Serial.print(", ");
+  Serial.print(last_temp, DEC);
+  Serial.print(", ");
+  Serial.print(ssrPWM, DEC);
+  Serial.print("\r\n");
 }
 
 /***********************************************************************
