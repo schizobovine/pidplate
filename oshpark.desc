@@ -1,0 +1,5 @@
+PID temperature controller shield for reading in thermocouple data and using the results to control a SSR.
+
+Based on MAX 31855 thermocouple amplifier. Has a [Newport PCC-SMP-K mini thermocouple connector](http://www.newark.com/newport-electronics/pcc-smp-k/thermocouple-connector-type-k/dp/01H0905), JST XH-4 connector to the SSR/PSU assembly, and a header for the [Adafruit 128x32 I2C OLED Display](https://www.adafruit.com/products/931). Includes level shifting MOSFETs to play safely with 5V Arduinos (but assumes the 3.3V power line is, in fact, 3.3V).
+
+[https://github.com/schizobovine/pidplate](https://github.com/schizobovine/pidplate)
